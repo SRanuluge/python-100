@@ -76,3 +76,69 @@ if extra_cheese == "Y":
   bill += 1
   
 print(f"Your final bill is: ${bill}.")
+
+
+# -----------------------------------------------------
+
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+bill = 0
+
+if height >= 120:
+  print("You can ride the rollercoaster!")
+  age = int(input("What is your age? "))
+  if age < 12:
+    bill = 5
+    print("Child tickets are $5.")
+  elif age <= 18:
+    bill = 7
+    print("Youth tickets are $7.")
+  elif age >= 45 and age <= 55:
+    print("Everything is going to be ok. Have a free ride on us!")
+  else:
+    bill = 12
+    print("Adult tickets are $12.")
+  
+  wants_photo = input("Do you want a photo taken? Y or N. ")
+  if wants_photo == "Y":
+    bill += 3
+  
+  print(f"Your final bill is ${bill}")
+
+else:
+  print("Sorry, you have to grow taller before you can ride.")
+
+
+# ------------------------------
+print("The Love Calculator is calculating your score...")
+name1 = input() # What is your name?
+name2 = input() # What is their name?
+# 🚨 Don't change the code above 👆
+# Write your code below this line 👇
+
+def count_letters(name, letters):
+    count = 0
+    for letter in letters:
+        count += name.lower().count(letter)
+    return count
+
+def love_true_score(name1, name2):
+    combined_name = name1 + name2
+    
+    # Count occurrences of 'TRUE'
+    true_count = count_letters(combined_name, 'true')
+    
+    # Count occurrences of 'LOVE'
+    love_count = count_letters(combined_name, 'love')
+    
+    # Combine counts to form a two-digit number
+    score = int(f"{true_count}{love_count}")
+    
+    return score
+score = love_true_score(name1, name2)
+if score < 10 or score > 90:
+  print(f"Your score is {score}, you go together like coke and mentos.")
+elif score > 40 and score < 50:
+  print(f"Your score is {score}, you are alright together.")
+else :
+  print(f"Your score is {score}.")
